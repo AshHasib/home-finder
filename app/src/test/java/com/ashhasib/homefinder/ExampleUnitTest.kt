@@ -1,4 +1,4 @@
-package com.example.homefinder
+package com.ashhasib.homefinder
 
 import org.junit.Test
 
