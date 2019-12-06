@@ -23,12 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/ic_username"
+        android:drawableLeft="@drawable/ic_name"
         android:drawablePadding="4dp"
         android:drawableTint="#AEAEAE"
         android:hint="Full Name"
-        android:padding="8dp"
-        android:textSize="22dp"
+        android:padding="12dp"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:layout_editor_absoluteX="32dp" />
 
@@ -39,12 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/ic_password"
+        android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="4dp"
         android:drawableTint="#AEAEAE"
         android:hint="Email"
-        android:padding="8dp"
-        android:textSize="22dp"
+        android:padding="12dp"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/txtSignupFullName"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -54,12 +54,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/ic_password"
+        android:drawableLeft="@drawable/ic_profile"
         android:drawablePadding="4dp"
         android:drawableTint="#AEAEAE"
         android:hint="Username"
-        android:padding="8dp"
-        android:textSize="22dp"
+        android:padding="12dp"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/txtSignupEmail"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -74,8 +74,8 @@
         android:drawableTint="#AEAEAE"
         android:inputType="textPassword"
         android:hint="Password"
-        android:padding="8dp"
-        android:textSize="22dp"
+        android:padding="12dp"
+        android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/txtSignupUsername"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -89,8 +89,8 @@
         android:drawablePadding="4dp"
         android:drawableTint="#AEAEAE"
         android:hint="Retype Password"
-        android:padding="8dp"
-        android:textSize="22dp"
+        android:padding="12dp"
+        android:textSize="20dp"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/txtSignupPassword"
         tools:layout_editor_absoluteX="16dp" />
