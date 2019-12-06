@@ -3,7 +3,18 @@ package com.ashhasib.homefinder
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
+import com.ashhasib.homefinder.authorization.LoginManager
+import com.ashhasib.homefinder.model.Token
+import com.ashhasib.homefinder.model.User
+import com.ashhasib.homefinder.retrofitclient.ApiClient
+import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,5 +37,18 @@ class LoginActivity : AppCompatActivity() {
     private fun loginTasks() {
         val username = txtLoginUsername.text.toString()
         val password = txtLoginPassword.text.toString()
+
+        val manager = LoginManager(context = this, user= User(username, password))
+
+        if (manager.isValid()) {
+            txtErrorMessage.visibility = View.INVISIBLE
+
+            manager.authenticate()
+
+        } else {
+            txtErrorMessage.visibility = View.VISIBLE
+        }
     }
+
+
 }

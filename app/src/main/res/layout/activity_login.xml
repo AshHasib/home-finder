@@ -49,18 +49,29 @@
         app:layout_constraintTop_toBottomOf="@+id/txtLoginUsername"
         tools:layout_editor_absoluteX="16dp" />
 
+    <TextView
+        android:id="@+id/txtErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="2dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="Fillup the information correctly"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtLoginPassword" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBtnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
         android:backgroundTint="@color/colorPrimary"
         android:clickable="true"
+        android:layout_margin="16dp"
         android:foreground="?selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtErrorMessage"
         tools:layout_editor_absoluteX="32dp">
 
         <TextView
