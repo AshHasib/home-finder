@@ -8,10 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorLightBlack</item>
         <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
     </style>
 
     <style name="AppBarTheme" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:fontFamily">@font/open_sans</item>
     </style>
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slideinright</item>
+        <item name="android:activityOpenExitAnimation">@anim/slideoutleft</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slideinleft</item>
+        <item name="android:activityCloseExitAnimation">@anim/slideoutright</item>
+    </style>
+
+
+
 </resources>
