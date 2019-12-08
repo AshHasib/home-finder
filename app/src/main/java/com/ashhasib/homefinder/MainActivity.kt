@@ -26,10 +26,14 @@ class MainActivity : AppCompatActivity() {
 
         sessionManager = UserSessionManager(this)
 
-        //startActivity(Intent(this, LoginActivity::class.java))
         checkLoginStatus()
 
+
+
         txtMessage.text = sessionManager.tokenKey
+
+
+
         btn.setOnClickListener {
             if(sessionManager.isNotEmpty) {
                 sessionManager.clear()

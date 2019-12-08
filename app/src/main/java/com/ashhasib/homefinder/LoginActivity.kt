@@ -27,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
             loginTasks()
         }
 
+
+        /**
+         * Redirecting to sign up page for a new account
+         */
         txtRedirectSignup.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
             finish()
@@ -34,9 +38,10 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+
     private fun loginTasks() {
-        val username = txtLoginUsername.text.toString()
-        val password = txtLoginPassword.text.toString()
+        val username = txtLoginUsername.text.toString().trim()
+        val password = txtLoginPassword.text.toString().trim()
 
         val manager = LoginManager(context = this, user= User(username, password))
 
