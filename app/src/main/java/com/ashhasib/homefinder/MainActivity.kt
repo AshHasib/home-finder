@@ -1,5 +1,6 @@
 package com.ashhasib.homefinder
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 class MainActivity : AppCompatActivity() {
     lateinit var sessionManager :UserSessionManager
 
+    private val statsDialog by lazy {
+        Dialog(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -35,10 +39,9 @@ class MainActivity : AppCompatActivity() {
 
 
         btn.setOnClickListener {
-            if(sessionManager.isNotEmpty) {
-                sessionManager.clear()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
+            statsDialog.run {
+                setContentView(R.layout.custom_dialog)
+                show()
             }
         }
 
