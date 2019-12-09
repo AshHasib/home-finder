@@ -4,7 +4,9 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import com.ashhasib.homefinder.preference.UserSessionManager
 import com.ashhasib.homefinder.retrofitclient.ApiClient
 import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
@@ -39,10 +41,9 @@ class MainActivity : AppCompatActivity() {
 
 
         btn.setOnClickListener {
-            statsDialog.run {
-                setContentView(R.layout.custom_dialog)
-                show()
-            }
+            sessionManager.clear()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
     }
@@ -54,6 +55,26 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+
+
+
+
+
+
+
+
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Click again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
     }
 
 

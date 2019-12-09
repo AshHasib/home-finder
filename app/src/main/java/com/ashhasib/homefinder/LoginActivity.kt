@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
          */
         txtRedirectSignup.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
         }
 
     }
