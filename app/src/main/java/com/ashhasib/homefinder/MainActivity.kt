@@ -6,55 +6,117 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.ashhasib.homefinder.fragments.HomeFragment
+import com.ashhasib.homefinder.fragments.MoreFragment
 import com.ashhasib.homefinder.preference.UserSessionManager
 import com.ashhasib.homefinder.retrofitclient.ApiClient
 import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var sessionManager :UserSessionManager
 
-    private val statsDialog by lazy {
-        Dialog(this)
-    }
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sessionManager = UserSessionManager(this)
+        init()
 
+
+        sessionManager = UserSessionManager(this)
         checkLoginStatus()
 
+        setupBottomNav()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HomeFragment())
+            .commit()
+    }
 
 
-        txtMessage.text = sessionManager.tokenKey
-
-
-
-        btn.setOnClickListener {
-            sessionManager.clear()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
+    /**
+     * Some initial works
+     */
+    private fun init() {
 
     }
 
 
+
+
+
+
+
+
+
+
+
+
+    private fun setupBottomNav() {
+
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+
+            var fragment: Fragment = HomeFragment()
+
+            when(it.itemId) {
+
+                R.id.nav_home -> {
+                    fragment= HomeFragment()
+                }
+
+                R.id.nav_search -> {
+
+                }
+
+                R.id.nav_history -> {
+
+                }
+
+                R.id.nav_more -> {
+                    fragment = MoreFragment()
+                }
+
+            }
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commit()
+
+            return@setOnNavigationItemSelectedListener true
+        }
+    }
+
+
+
+
+    /**
+     *
+     * Activity methods
+     */
+
     private fun checkLoginStatus() {
-        //val sessionManager = UserSessionManager(this)
+
         if(!sessionManager.isNotEmpty) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
     }
 
 
