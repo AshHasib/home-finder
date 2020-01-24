@@ -11,7 +11,7 @@ public class RetrofitClientInstance {
         if(retrofit == null) {
             retrofit = new Retrofit
                     .Builder()
-                    .baseUrl("http://10.0.2.2:8000/api/")
+                    .baseUrl("http://ashhasib54.pythonanywhere.com/api/")
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

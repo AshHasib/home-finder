@@ -28,6 +28,18 @@ public class UserSessionManager {
     }
 
 
+    public User getUser() {
+        User user = new User();
+
+        user.setUsername(sharedPreferences.getString(USERNAME, null));
+        user.setPassword(sharedPreferences.getString(PASSWORD, null));
+
+
+        return user;
+    }
+
+
+
     public void write(Token token, User user) {
 
         editor.putString(TOKEN_KEY, token.getToken());

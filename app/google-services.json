@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "289466636070",
+    "firebase_url": "https://basha-chai.firebaseio.com",
+    "project_id": "basha-chai",
+    "storage_bucket": "basha-chai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289466636070:android:a5664ac8d4505a77a853e7",
+        "android_client_info": {
+          "package_name": "com.ashhasib.homefinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289466636070-vh423oipi3sdfb78jm88rg44jhaqa7g6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ashhasib.homefinder",
+            "certificate_hash": "4fb6559bc4665b70d4d421f6b9750d261cc9fa5c"
+          }
+        },
+        {
+          "client_id": "289466636070-0ql4h9vk3vujk59a313rdlv4ljfsbb6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5DfHUmtGWul_2mycwKjMhabqUHqNe_mA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289466636070-0ql4h9vk3vujk59a313rdlv4ljfsbb6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

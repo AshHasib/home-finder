@@ -15,6 +15,7 @@ import com.ashhasib.homefinder.fragments.MoreFragment
 import com.ashhasib.homefinder.preference.UserSessionManager
 import com.ashhasib.homefinder.retrofitclient.ApiClient
 import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -27,11 +28,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        FirebaseDatabase.getInstance().getReference("message").setValue("hello World")
+
+
         init()
 
 
         sessionManager = UserSessionManager(this)
         checkLoginStatus()
+
+        val user = sessionManager.user
+
+        Log.d("USERNAME: ","${user.username}")
+
 
         setupBottomNav()
 

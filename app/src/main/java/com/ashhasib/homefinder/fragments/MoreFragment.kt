@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.ashhasib.homefinder.LoginActivity
 import com.ashhasib.homefinder.R
 import com.ashhasib.homefinder.preference.UserSessionManager
+import kotlinx.android.synthetic.main.fragment_more.view.*
 
 class MoreFragment: Fragment() {
 
@@ -21,15 +22,23 @@ class MoreFragment: Fragment() {
         val v = inflater.inflate(R.layout.fragment_more, container, false)
 
         val btn = v.findViewById(R.id.btnLogout) as Button
+        val manager = UserSessionManager(context)
 
         btn.setOnClickListener {
-            val manager = UserSessionManager(context)
+
             manager.clear()
             startActivity(Intent(context, LoginActivity::class.java))
             activity!!.finish()
         }
 
+        displayData(v,manager)
+
 
         return v
+    }
+
+
+    public fun displayData(v:View, manager: UserSessionManager) {
+        v.txtShowUsername.text = manager.user.username
     }
 }
