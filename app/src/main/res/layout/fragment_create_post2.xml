@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#B3FFFFFF"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of bedrooms*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="e.g - 2"
+        android:padding="8dp"
+        android:textSize="14sp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of bathrooms*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:hint="e.g - 2"
+        android:textSize="14sp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which Floor*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
+        android:hint="e.g - 3rd"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"/>
+
+    <Button
+        android:id="@+id/btnNextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Next Step"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorOffWhite"
+        android:textStyle="bold"/>
+
+
+
+</LinearLayout>

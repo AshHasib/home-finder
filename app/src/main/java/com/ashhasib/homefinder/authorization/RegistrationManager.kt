@@ -4,11 +4,13 @@ import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import com.ashhasib.homefinder.LoginActivity
 import com.ashhasib.homefinder.R
 import com.ashhasib.homefinder.model.UserProfile
 import com.ashhasib.homefinder.retrofitclient.ApiClient
 import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
+import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.custom_dialog.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,6 +62,9 @@ class RegistrationManager(
 
 
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
+
+                activity.progressBar.visibility = View.VISIBLE
+
                 //val user = response.body()
                 Log.d("AUTHORIZATION", "Success")
                 Log.d("AUTHORIZATION", response.body().toString())
@@ -68,7 +73,9 @@ class RegistrationManager(
                 try {
                     val user:UserProfile = response.body() as UserProfile
                     initDialogBox(user)
+                    activity.progressBar.visibility = View.INVISIBLE
                 } catch (e: TypeCastException) {
+                    activity.progressBar.visibility = View.INVISIBLE
                     val customDialog = Dialog(activity)
                     customDialog.run {
                         setContentView(R.layout.custom_dialog)

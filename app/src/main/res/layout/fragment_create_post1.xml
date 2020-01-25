@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#B3FFFFFF"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Give a short description*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:hint="e.g - A very good house at a reasonable price..."
+        android:textSize="14sp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Area/Province*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="e.g - Housing Estate, Cumilla."
+        android:padding="8dp"
+        android:textSize="14sp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your desired rent per month*"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:hint="e.g - 4000"
+        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"/>
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Continue"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorOffWhite"
+        android:textStyle="bold"/>
+
+
+
+</LinearLayout>

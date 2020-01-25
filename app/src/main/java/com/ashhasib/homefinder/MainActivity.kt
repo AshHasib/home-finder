@@ -1,6 +1,6 @@
 package com.ashhasib.homefinder
 
-import android.app.Dialog
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,8 +13,6 @@ import androidx.fragment.app.Fragment
 import com.ashhasib.homefinder.fragments.HomeFragment
 import com.ashhasib.homefinder.fragments.MoreFragment
 import com.ashhasib.homefinder.preference.UserSessionManager
-import com.ashhasib.homefinder.retrofitclient.ApiClient
-import com.ashhasib.homefinder.retrofitclient.RetrofitClientInstance
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -127,10 +125,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
-
-
-
-
 
 
 

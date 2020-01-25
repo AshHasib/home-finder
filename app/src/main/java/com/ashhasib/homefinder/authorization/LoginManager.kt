@@ -24,21 +24,16 @@ class LoginManager(val context: Activity, val user: User) {
 
         if (user.username.isEmpty() || user.password.isEmpty()) flag = false
         if (user.username.length <= 5 || user.password.length <= 8) flag = false
-        // if(!isValidRegexWise()) flag = false
-
         return flag
     }
 
 
     fun authenticate() {
-
         val retrofit = RetrofitClientInstance.getRetrofitInstance()
         val client = retrofit.create(ApiClient::class.java)
         val call = client.getToken(User(user.username, user.password))
 
-
         call.enqueue(object : Callback<Token> {
-
 
             /**
              * Failed due to network error
@@ -48,7 +43,7 @@ class LoginManager(val context: Activity, val user: User) {
             }
 
             override fun onResponse(call: Call<Token>, response: Response<Token>) {
-
+                context.progressBar.visibility=View.VISIBLE
                 /**
                  * Authentication data is valid 200
                  */
@@ -74,6 +69,7 @@ class LoginManager(val context: Activity, val user: User) {
                     Log.d("TOKEN", response.code().toString())
                     context.txtErrorMessage.visibility = View.VISIBLE
                     Toast.makeText(context, "Authentication Failed", Toast.LENGTH_LONG).show()
+                    context.progressBar.visibility=View.INVISIBLE
                 }
             }
         })
