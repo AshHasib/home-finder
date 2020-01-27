@@ -13,11 +13,12 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtNumBedroom"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:hint="e.g - 2"
-        android:padding="8dp"
+        android:padding="12dp"
         android:textSize="14sp"
         android:background="@drawable/input_bg"
         android:layout_width="match_parent"
@@ -33,10 +34,11 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtNumBathroom"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:padding="8dp"
+        android:padding="12dp"
         android:hint="e.g - 2"
         android:textSize="14sp"
         android:background="@drawable/input_bg"
@@ -53,10 +55,11 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtNumFloor"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:padding="8dp"
+        android:padding="12dp"
         android:layout_marginBottom="16dp"
         android:textSize="14sp"
         android:hint="e.g - 3rd"

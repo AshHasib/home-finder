@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="#B3FFFFFF"
     android:layout_height="match_parent">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,10 +12,11 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtDescription"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:padding="8dp"
+        android:padding="12dp"
         android:hint="e.g - A very good house at a reasonable price..."
         android:textSize="14sp"
         android:background="@drawable/input_bg"
@@ -33,11 +33,12 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtArea"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:hint="e.g - Housing Estate, Cumilla."
-        android:padding="8dp"
+        android:padding="12dp"
         android:textSize="14sp"
         android:background="@drawable/input_bg"
         android:layout_width="match_parent"
@@ -53,10 +54,11 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/txtRent"
         android:gravity="top"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:padding="8dp"
+        android:padding="12dp"
         android:hint="e.g - 4000"
         android:layout_marginBottom="16dp"
         android:textSize="14sp"
@@ -77,7 +79,4 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/colorOffWhite"
         android:textStyle="bold"/>
-
-
-
 </LinearLayout>

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseDatabase.getInstance().getReference("message").setValue("hello World")
+        FirebaseDatabase.getInstance().getReference("message").setValue("hello as a new message")
 
 
         init()
@@ -69,7 +69,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNav() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
-
             var fragment: Fragment = HomeFragment()
 
             when(it.itemId) {
