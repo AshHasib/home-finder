@@ -3,10 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="#B3FFFFFF"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please fill up properly"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:textColor="@android:color/holo_red_dark"
+        android:textAlignment="center"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Give a short description*"
+        android:text="Describe the house(Min. 20 characters)*"
         android:textSize="12sp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"/>

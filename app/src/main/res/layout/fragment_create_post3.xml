@@ -4,6 +4,7 @@
     android:background="#B3FFFFFF"
     android:layout_height="match_parent">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,6 +13,14 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"/>
 
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_marginLeft="16dp"
+        android:visibility="gone"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not sufficient image"/>
 
     <Button
         android:id="@+id/btnUpload"
@@ -28,9 +37,10 @@
 
 
     <TextView
+        android:id="@+id/imageNames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="img1.jpg\nimg2.jpg\nimg3.jpg"
+        android:text="e.g - \nimg1.jpg\nimg2.jpg\nimg3.jpg"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"/>
 

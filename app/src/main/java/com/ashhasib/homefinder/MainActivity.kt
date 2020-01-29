@@ -10,28 +10,35 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.ashhasib.homefinder.fragments.HistoryFragment
 import com.ashhasib.homefinder.fragments.HomeFragment
 import com.ashhasib.homefinder.fragments.MoreFragment
+import com.ashhasib.homefinder.fragments.SearchFragment
 import com.ashhasib.homefinder.preference.UserSessionManager
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var sessionManager :UserSessionManager
 
+    lateinit var sessionManager :UserSessionManager
     private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseDatabase.getInstance().getReference("message").setValue("hello as a new message")
-
 
         init()
 
 
+    }
+
+
+    /**
+     * Some initial works
+     */
+    private fun init() {
         sessionManager = UserSessionManager(this)
         checkLoginStatus()
 
@@ -45,14 +52,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, HomeFragment())
             .commit()
-    }
-
-
-    /**
-     * Some initial works
-     */
-    private fun init() {
-
     }
 
 
@@ -78,11 +77,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_search -> {
-
+                    fragment = SearchFragment()
                 }
 
                 R.id.nav_history -> {
-
+                    fragment = HistoryFragment()
                 }
 
                 R.id.nav_more -> {

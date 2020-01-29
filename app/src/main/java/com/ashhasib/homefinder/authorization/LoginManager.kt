@@ -19,6 +19,10 @@ import retrofit2.Response
 
 class LoginManager(val context: Activity, val user: User) {
 
+
+    /**
+     * Validity testing for data
+     */
     fun isValid(): Boolean {
         var flag = true //assuming true initially
 
@@ -29,6 +33,10 @@ class LoginManager(val context: Activity, val user: User) {
 
 
     fun authenticate() {
+
+        context.progressBar.visibility=View.VISIBLE
+
+
         val retrofit = RetrofitClientInstance.getRetrofitInstance()
         val client = retrofit.create(ApiClient::class.java)
         val call = client.getToken(User(user.username, user.password))
@@ -43,7 +51,7 @@ class LoginManager(val context: Activity, val user: User) {
             }
 
             override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                context.progressBar.visibility=View.VISIBLE
+
                 /**
                  * Authentication data is valid 200
                  */

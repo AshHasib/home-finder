@@ -12,11 +12,42 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/layoutUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="invisible"
+        android:background="#E6FFFFFF"
+        android:minHeight="32dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainer"
+        tools:layout_editor_absoluteX="-35dp">
 
+        <TextView
+            android:id="@+id/uploadMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Uploading your post . . ."/>
+
+        <TextView
+            android:id="@+id/gotoHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to home"
+            android:textSize="12dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
