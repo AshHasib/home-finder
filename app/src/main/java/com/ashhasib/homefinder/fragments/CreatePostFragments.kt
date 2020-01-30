@@ -12,9 +12,56 @@ import androidx.fragment.app.Fragment
 import com.ashhasib.homefinder.CreatePostActivity
 import com.ashhasib.homefinder.R
 import com.ashhasib.homefinder.authorization.CreatePostManager
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_create_post1.*
 import kotlinx.android.synthetic.main.fragment_create_post2.*
 import kotlinx.android.synthetic.main.fragment_create_post2.errorMessage
+
+
+
+
+
+class RentTypeFragment :Fragment(){
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_rent_type, container, false)
+
+        val act:CreatePostActivity = activity as CreatePostActivity
+
+        val btnFamily = view.findViewById(R.id.btnFamily) as Button
+        val btnBachelor = view.findViewById(R.id.btnBachelors) as Button
+
+        btnFamily.setOnClickListener {
+            act.setPostType("FAMILY")
+            act
+                .supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fadein, R.anim.fadeout)
+                .replace(R.id.fragmentContainer, CreatePostFragment1())
+                .commit()
+        }
+
+        btnBachelor.setOnClickListener {
+            act.setPostType("BACHELOR")
+            act
+                .supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, CreatePostFragment1())
+                .setCustomAnimations(R.anim.fadein, R.anim.fadeout)
+                .commit()
+        }
+
+        return view
+    }
+}
+
+
+
+
+
 
 
 class CreatePostFragment1:Fragment() {
@@ -68,8 +115,8 @@ class CreatePostFragment1:Fragment() {
             act
                 .supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.anim.fadein, R.anim.fadeout)
                 .replace(R.id.fragmentContainer, CreatePostFragment2())
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .commit()
 
         } else {
@@ -132,8 +179,8 @@ class CreatePostFragment2 :Fragment(){
             act
                 .supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.anim.fadein, R.anim.fadeout)
                 .replace(R.id.fragmentContainer, CreatePostFragment3())
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .commit()
         }
         else {
@@ -195,4 +242,21 @@ class CreatePostFragment3 :Fragment(){
         return view
     }
 
+}
+
+
+
+class UploadBottomSheet:BottomSheetDialogFragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.upload_bottom_sheet, container,false)
+
+        val uploadMessage = view.findViewById(R.id.uploadMessage) as TextView
+        uploadMessage.text = "${arguments!!.getString("NUM_IMAGES")} images uploaded"
+
+        return view
+    }
 }

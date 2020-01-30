@@ -11,7 +11,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ashhasib.homefinder.authorization.CreatePostManager
 import com.ashhasib.homefinder.fragments.CreatePostFragment1
+import com.ashhasib.homefinder.fragments.RentTypeFragment
 import com.ashhasib.homefinder.model.RentPost
 import com.ashhasib.homefinder.model.UploadImage
 import com.ashhasib.homefinder.preference.UserSessionManager
@@ -22,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_create_post.*
 
 class CreatePostActivity : AppCompatActivity() {
 
+    lateinit var type:String
     lateinit var description:String
     lateinit var area:String
     lateinit var rent:String
@@ -40,20 +43,16 @@ class CreatePostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_post)
-
-
         val manager = UserSessionManager(this)
-
         mainStorageRef = FirebaseStorage.getInstance().getReference("img")
-
         currentUserName = manager.user.username
         imgRef = "${currentUserName}_${System.currentTimeMillis()}"
-        Toast.makeText(this,imgRef,Toast.LENGTH_LONG).show()
-        Log.d("REFERENCE", imgRef)
+
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragmentContainer, CreatePostFragment1())
+            .setCustomAnimations(R.anim.fadein, R.anim.fadeout)
+            .add(R.id.fragmentContainer, RentTypeFragment())
             .commit()
 
     }
@@ -62,6 +61,10 @@ class CreatePostActivity : AppCompatActivity() {
     /**
      * Methods for getting data from its fragments
      */
+
+    fun setPostType(type:String){
+        this.type = type
+    }
 
     fun setPartOne(description:String, area:String, rent:String) {
         this.description = description
@@ -114,8 +117,8 @@ class CreatePostActivity : AppCompatActivity() {
      */
     fun uploadPost() {
 
-        layoutUpload.visibility = View.VISIBLE
         val rentPost = RentPost(currentUserName,
+            type,
             description,
             area,
             rent,
@@ -124,29 +127,9 @@ class CreatePostActivity : AppCompatActivity() {
             numFloor,
             imgRef)
 
-        val databaseReference=
-            FirebaseDatabase.getInstance().reference.child("img").child(imgRef)
 
-        for(fUri in fileUriList) {
-            val fRef = mainStorageRef.child(imgRef).child(getFileName(fUri)!!)
-
-            val uploadTask = fRef.putFile(fUri)
-                .addOnSuccessListener {
-                    uploadMessage.text = "Upload Complete"
-                    val upImg = UploadImage(getFileName(fUri),
-                        it.metadata!!.reference!!.downloadUrl.toString())
-                    val upId = databaseReference.push().key.toString()
-                    databaseReference.child(upId).setValue(upImg)
-                }
-                .addOnFailureListener{
-                    uploadMessage.text = "Failed"
-                    Log.d("FAILED MESSAGE", it.toString())
-                }
-                .addOnProgressListener {
-                    uploadMessage.text = "Uploading . . ."
-                }
-        }
-
+        val postManager = CreatePostManager(this)
+        postManager.post(rentPost,fileUriList,fileNameList,imgRef)
 
     }
 

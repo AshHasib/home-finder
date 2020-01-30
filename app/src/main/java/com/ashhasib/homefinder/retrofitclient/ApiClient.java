@@ -1,5 +1,6 @@
 package com.ashhasib.homefinder.retrofitclient;
 
+import com.ashhasib.homefinder.model.RentPost;
 import com.ashhasib.homefinder.model.Token;
 import com.ashhasib.homefinder.model.User;
 import com.ashhasib.homefinder.model.UserProfile;
@@ -30,5 +31,9 @@ public interface ApiClient {
 
     @POST("register/")
     Call<UserProfile> createUser(@Body UserProfile userProfile);
+
+
+    @POST("rents/")
+    Call<RentPost> postRent(@Header("Authorization")String header, @Body RentPost rentPost);
 
 }

@@ -7,6 +7,9 @@ public class RentPost {
     @SerializedName("username")
     @Expose
     private String username;
+    @SerializedName("type")
+    @Expose
+    private String type;
     @SerializedName("description")
     @Expose
     private String description;
@@ -47,9 +50,18 @@ public class RentPost {
      * @param rent
      * @param username
      */
-    public RentPost(String username, String description, String area, String rent, String numBedrooms, String numBathrooms, String numFloor, String imageRef) {
+    public RentPost(String username,
+                    String type,
+                    String description,
+                    String area,
+                    String rent,
+                    String numBedrooms,
+                    String numBathrooms,
+                    String numFloor,
+                    String imageRef) {
         super();
         this.username = username;
+        this.type = type;
         this.description = description;
         this.area = area;
         this.rent = rent;
@@ -122,6 +134,10 @@ public class RentPost {
     public void setImageRef(String imageRef) {
         this.imageRef = imageRef;
     }
+
+    public void setType(String type) { this.type = type; }
+
+    public String getType () {return this.type;}
 
 
     public boolean isEmpty() {
